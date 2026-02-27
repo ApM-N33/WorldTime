@@ -1,0 +1,28 @@
+.footer {
+  --footer-padding: 8px 0;
+
+  width: 100%;
+  background-color: var(--black-default);
+  box-shadow: 0 -4px 20px rgba(255, 255, 255, 0.05);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: var(--footer-padding);
+  }
+
+  &__text {
+    font-size: var(--text-font-size);
+    font-weight: 700;
+    text-align: center;
+    color: var(--black-default);
+    text-shadow:
+      0 0 3px var(--gray-text),
+      0 0 3px var(--gray-text),
+      0 0 3px var(--gray-text),
+      0 0 5px var(--gray-text);
+  }
+}

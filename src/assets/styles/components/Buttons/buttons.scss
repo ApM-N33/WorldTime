@@ -1,0 +1,183 @@
+.btn {
+  --btn-border: 1px solid var(--gray-rgba04);
+  --btn-add-city-gap: clamp(0.313rem, 0.247rem + 0.33vw, 0.625rem);
+  --btn-add-selected-padding: 8px;
+  --btn-add-selected-radius: 6px;
+  --btn-stopwatch-width: clamp(2.188rem, 0.893rem + 6.47vw, 8.5rem);
+  --btn-stopwatch-fz: clamp(0.75rem, 0.404rem + 1.73vw, 2.438rem);
+  --btn-stopwatch-letter-space: clamp(0.02rem, 0.008rem + 0.06vw, 0.077rem);
+  --btn-stopwatch-radius: 50%;
+  --btn-close-modal-top: 5px;
+  --btn-close-modal-right: 15px;
+  --btn-close-modal-fz: 20px;
+  --btn--dropdown-converter-radius: 6px;
+  --btn--dropdown-converter-padding: clamp(0.625rem, 0.586rem + 0.2vw, 0.813rem)
+    clamp(0.313rem, 0.286rem + 0.13vw, 0.438rem);
+  --btn--dropdown-converter-offset-text-gap: 6px;
+
+  background-color: unset;
+  border: unset;
+  font-size: var(--text-font-size);
+  color: var(--gray-text);
+  transition:
+    color 0.1s ease,
+    background 0.1s ease,
+    border 0.1s ease;
+  cursor: pointer;
+
+  &:hover:not(.btn--stopwatch) {
+    color: var(--gray-rgba04);
+    .logo--checked,
+    .logo--clear-all,
+    .logo--trash {
+      fill: var(--gray-rgba04);
+    }
+  }
+
+  &--add-city {
+    display: flex;
+    align-items: center;
+    gap: var(--btn-add-city-gap);
+  }
+
+  &--delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--delete-checked {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &--clear-all {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  &--close-modal {
+    position: absolute;
+    right: var(--btn-close-modal-right);
+    top: var(--btn-close-modal-top);
+    font-size: var(--btn-close-modal-fz);
+  }
+
+  &--add-selected {
+    border: var(--btn-border);
+    background-color: var(--black-rgba05);
+    padding: var(--btn-add-selected-padding);
+    border-radius: var(--btn-add-selected-radius);
+    color: var(--white-default);
+    box-shadow: 1px 0px 6px 3px var(--gray-rgba02) inset;
+  }
+
+  &--add-selected:hover {
+    color: var(--black-default) !important;
+    background-color: var(--gray-text);
+    border-color: var(--gray-text);
+  }
+
+  &--dropdown-converter {
+    width: 100%;
+    border: var(--btn-border);
+    text-align: left;
+    padding: var(--btn--dropdown-converter-padding);
+    background-color: var(--black-rgba05);
+    border-radius: var(--btn--dropdown-converter-radius);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 1px 0px 6px 3px var(--gray-rgba02) inset;
+
+    &__offset-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--btn--dropdown-converter-offset-text-gap);
+    }
+
+    &__offset-text {
+      @media (max-width: 640px) {
+        display: none;
+      }
+    }
+  }
+
+  &--swap {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s linear;
+  }
+
+  &--stopwatch {
+    width: var(--btn-stopwatch-width);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: unset;
+    border-radius: var(--btn-stopwatch-radius);
+    font-family: var(--system-font);
+    font-weight: 300;
+    font-size: var(--btn-stopwatch-fz);
+    letter-spacing: var(--btn-stopwatch-letter-space);
+    cursor: pointer;
+  }
+
+  &--stopwatch-start {
+    background-color: var(--stopwatch-start-btn-green);
+    color: var(--stopwatch-start-btn-text-green);
+  }
+
+  &--stopwatch-lap {
+    background-color: var(--stopwatch-lap-btn-disabled-gray);
+    color: var(--stopwatch-lap-btn-text-disabled-gray);
+  }
+
+  &--scale-in,
+  &--scale-out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(1.25rem, -0.114rem + 6.82vw, 5rem);
+    aspect-ratio: 1;
+    padding-bottom: clamp(0.438rem, 0.345rem + 0.46vw, 0.875rem);
+    border-radius: 50px;
+    background-color: var(--white-default);
+    color: var(--black-default);
+    overflow: hidden;
+
+    &:hover {
+      background-color: var(--black-rgba05);
+      color: var(--white-default) !important;
+    }
+
+    span {
+      font-size: clamp(1.563rem, 0.707rem + 4.28vw, 5.625rem);
+    }
+  }
+
+  &--header-nav-item {
+    @media (max-width: 768px) {
+      display: none !important;
+    }
+  }
+
+  &--mobile-menu-nav-item {
+    width: 100%;
+    text-align: start;
+  }
+
+  &--burger {
+    display: none;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+}

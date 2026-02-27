@@ -1,0 +1,34 @@
+.timer-block {
+  --timer-block-gap: 0;
+  --timer-block-left-flex: 0 0 100%;
+  --timer-block-right-flex: 0 0 0;
+  --timer-block-right-max-height: 600px;
+
+  width: 100%;
+  display: flex;
+  gap: var(--timer-block-gap);
+  transition: gap 0.3s ease-in-out;
+  overflow-x: hidden;
+
+  &__left {
+    flex: var(--timer-block-left-flex);
+    min-width: 0;
+    display: flex;
+    transition: flex 0.3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  &__right {
+    --timer-block-gap: 12px;
+    flex: var(--timer-block-right-flex);
+    min-width: 0;
+    max-height: var(--timer-block-right-max-height);
+    display: flex;
+    flex-direction: column;
+    gap: var(--timer-block-gap);
+    transform: translate(var(--right-block-translate));
+    transition:
+      flex 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+}

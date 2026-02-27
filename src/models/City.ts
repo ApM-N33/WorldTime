@@ -1,0 +1,129 @@
+import { addClass } from "../utils/domUtils/addRemoveClasses"
+import { ICity } from "../types/city/City.types"
+import type { Maybe, TInputEl } from "../types/common/Base.types"
+import { $ } from "../utils/domUtils/query"
+import { getRandomID } from "../utils/helpers/getRandomID"
+
+export class City implements ICity {
+  public id: string
+  public timeZone: string
+  public timeText: Maybe<HTMLElement>
+  public dateText: Maybe<HTMLElement>
+  public cityText: Maybe<HTMLElement>
+  public flagLogo: Maybe<HTMLImageElement>
+  public offsetText: Maybe<HTMLElement>
+  public deleteBtn: Maybe<HTMLButtonElement>
+  public checkboxInput: Maybe<TInputEl>
+  public savedCity: Maybe<HTMLElement>
+
+  constructor(timeZone: string) {
+    this.timeZone = timeZone
+    this.id = getRandomID()
+    this.timeText = null
+    this.dateText = null
+    this.cityText = null
+    this.offsetText = null
+    this.flagLogo = null
+    this.deleteBtn = null
+    this.checkboxInput = null
+    this.savedCity = null
+  }
+
+  public create(): HTMLElement {
+    const cityCard = document.createElement("article")
+    addClass(cityCard, "timer-card", "timer-card--small")
+    cityCard.innerHTML = /* html */ `
+      <div class="timer-card__header">
+        <div class="timer-card__title-wrapper">
+          <label class="input input--checkbox-label">
+            <input class="input input--checkbox" type="checkbox" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="logo logo--checkmark"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="55"
+                d="M416 128L192 384l-96-96"
+              ></path>
+            </svg>
+          </label>
+          <h5 class="timer-card__title">
+            <span class="timer-card__city-text"></span>
+            <span class="logo logo--flag logo--timer-card-flag">
+              <img class="logo--flag__img" src="" alt=""/>
+            </span>
+          </h5>
+        </div>
+        <button class="btn btn--delete btn--delete-city">
+         <svg class="logo logo--trash" viewBox="0 0 512 512">
+            <path
+              d="M410.889,43.919H301.535C299.775,19.787,280.578,0.08,255.994,0c-24.591,0.08-43.786,19.787-45.549,43.919 H101.112c-22.791,0-41.408,18.633-41.408,41.4v32.156c0,5.692,4.65,10.35,10.338,10.35h0.678l23.856,342.881 C96.151,493.408,116.064,512,138.855,512h234.283c22.759,0,42.7-18.592,44.286-41.295l23.836-342.881h0.678 c5.696,0,10.358-4.658,10.358-10.35V85.318C452.296,62.552,433.659,43.919,410.889,43.919z M146.884,319.686 c-4.316-6.895-2.322-16.817,1.562-23.59c2.411-4.23,13.337-22.589,13.337-22.589l-18.318-10.818l51.399-0.113l25.931,44.952 l-19.065-11.012l-23.28,40.98h0.021c-4.396,7.847-8.32,15.016-8.53,22.718C159.942,342.856,147.542,320.768,146.884,319.686z M243.004,384.628c-6.192-0.049-26.94-0.194-32.151-0.098c-23.857,0.42-29.993-5.376-32.543-9.784 c-0.529-0.937-1.086-1.89-1.644-2.851c-6.782-11.755-0.965-22.121,5.898-34.351l60.74,0.419L243.004,384.628z M223.523,258.458 l-40.246-23.606c3.128-5.329,13.628-23.227,16.15-27.78c11.553-20.878,19.663-23.292,24.741-23.292h3.286 c13.579,0,19.646,10.221,26.827,22.283L223.523,258.458z M256.353,202.502l-0.02,0.04c-4.582-7.735-8.836-14.71-15.388-18.746 c20.03,0.016,45.38,0.323,46.627,0.291c8.126-0.275,15.727,6.402,19.65,13.159c2.43,4.182,12.901,22.848,12.901,22.848 l18.517-10.463l-25.601,44.564h-51.895l19.077-11.012L256.353,202.502z M334.668,374.035c-3.834,7.193-13.398,10.415-21.217,10.447 c-4.852,0.024-26.23-0.242-26.23-0.242l-0.218,21.266l-25.79-44.452l25.951-44.952v22.024l47.152-0.34l-0.007-0.016 c8.973-0.114,17.163-0.299,23.916-3.956C348.203,351.123,335.266,372.938,334.668,374.035z M366.643,319.283 c-0.549,0.952-1.098,1.904-1.655,2.874c-6.794,11.738-18.678,11.884-32.701,12.062l-29.992-52.832l40.561-23.058 c3.06,5.394,13.308,23.42,15.977,27.893C371.136,306.664,369.174,314.89,366.643,319.283z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div class="timer-card__body">
+        <p class="timer-card__time-text"></p>
+        <p class="timer-card__date-text"></p>
+      </div>
+      <div class="timer-card__footer">
+        <p class="timer-card__offset-text"></p>
+        <svg
+          class="logo logo--digital-clock logo--digital-clock-small"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 337.222 337.222"
+          fill="currentColor"
+        >
+          <path
+            d="M310.027,111.425h-28.169V86.688c12.651-5.325,21.555-17.851,21.555-32.417
+            c0-19.385-15.768-35.153-35.153-35.153s-35.153,15.768-35.153,35.153
+            c0,14.566,8.904,27.087,21.555,32.417v24.737H27.195C12.178,111.425,0,123.603,0,138.62
+            v119.659c0,15.017,12.178,27.195,27.195,27.195h282.831c15.017,0,27.195-12.178,27.195-27.195
+            V138.62C337.222,123.597,325.044,111.425,310.027,111.425z
+            M268.26,40.875c7.386,0,13.396,6.01,13.396,13.396
+            s-6.01,13.396-13.396,13.396s-13.396-6.01-13.396-13.396
+            S260.874,40.875,268.26,40.875z
+            M310.027,258.279H27.195V138.62h282.831V258.279z"
+          />
+          <rect x="31.726" y="294.536" width="273.764" height="23.567" />
+          <rect x="43.273" y="150.178" width="9.6" height="43.474" />
+          <rect x="217.166" y="159.772" width="9.6" height="33.874" />
+          <rect x="168.611" y="159.772" width="9.6" height="33.874" />
+          <rect x="178.211" y="150.178" width="38.955" height="9.6" />
+          <rect x="217.166" y="203.247" width="9.6" height="33.874" />
+          <rect x="168.611" y="203.247" width="9.6" height="33.874" />
+          <rect x="178.211" y="237.121" width="38.955" height="9.6" />
+          <rect x="114.976" y="159.772" width="9.6" height="33.874" />
+          <rect x="76.022" y="150.178" width="38.955" height="9.6" />
+          <rect x="66.422" y="203.247" width="9.6" height="33.874" />
+          <rect x="76.022" y="237.121" width="38.955" height="9.6" />
+          <rect x="76.022" y="193.647" width="38.955" height="9.6" />
+          <rect x="287.737" y="159.772" width="9.6" height="33.874" />
+          <rect x="239.183" y="159.772" width="9.6" height="33.874" />
+          <rect x="248.783" y="150.178" width="38.955" height="9.6" />
+          <rect x="287.737" y="203.247" width="9.6" height="33.874" />
+          <rect x="239.183" y="203.247" width="9.6" height="33.874" />
+          <rect x="248.783" y="237.121" width="38.955" height="9.6" />
+          <rect x="43.273" y="203.247" width="9.6" height="43.474" />
+          <rect x="141.514" y="159.773" width="9.6" height="9.6" />
+          <rect x="141.514" y="227.521" width="9.6" height="9.6" />
+        </svg>
+      </div>`
+
+    this.savedCity = cityCard
+    this.timeText = $(".timer-card__time-text", "one", cityCard)
+    this.dateText = $(".timer-card__date-text", "one", cityCard)
+    this.offsetText = $(".timer-card__offset-text", "one", cityCard)
+    this.cityText = $(".timer-card__city-text", "one", cityCard)
+    this.flagLogo = $<HTMLImageElement>(".logo--flag__img", "one", cityCard)
+    this.deleteBtn = $<HTMLButtonElement>(".btn--delete", "one", cityCard)
+    this.checkboxInput = $<TInputEl>(".input--checkbox", "one", cityCard)
+
+    return cityCard
+  }
+}

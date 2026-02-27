@@ -1,0 +1,13 @@
+.list-actions {
+  align-items: center;
+  justify-content: space-between;
+
+  &--countries {
+    display: none;
+    margin: 0 0;
+  }
+
+  &--cities {
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+section {
+  max-width: 100%;
+  max-height: fit-content;
+  display: none;
+}
+
+section.is-active {
+  display: block;
+}

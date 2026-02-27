@@ -1,0 +1,82 @@
+.input {
+  --input-padding: 7px 7px 7px 0;
+  --input-converter-border: 1px solid var(--gray-rgba04);
+  --input-converter-radius: 7px;
+
+  width: 100%;
+  background-color: unset;
+  outline: none;
+  border: unset;
+  color: var(--white-default);
+  font-size: var(--text-font-size);
+
+  &::placeholder {
+    color: var(--white-default);
+    font-size: var(--text-font-size);
+  }
+
+  &--time-converter,
+  &--dropdown-converter {
+    padding: var(--input-padding);
+    background-color: var(--black-rgba05);
+    border: var(--input-converter-border);
+    border-radius: var(--input-converter-radius);
+    color: var(--gray-text);
+    box-shadow: 1px 0px 6px 3px var(--gray-rgba02) inset;
+  }
+
+  &--time-converter:focus,
+  &--dropdown-converter:focus {
+    border-color: var(--white-default);
+  }
+
+  &--dropdown-converter::placeholder {
+    color: var(--gray-text);
+    --text-font-size: clamp(0.875rem, 0.809rem + 0.33vw, 1.188rem);
+    @media (max-width: 640px) {
+      --text-font-size: 12px;
+    }
+  }
+
+  &--time-converter {
+    --input-padding: clamp(0.625rem, 0.586rem + 0.2vw, 0.813rem) clamp(0.313rem, 0.286rem + 0.13vw, 0.438rem);
+  }
+
+  &--dropdown-converter {
+    --input-padding: clamp(0.313rem, 0.286rem + 0.13vw, 0.438rem);
+  }
+
+  &--checkbox-label {
+    --size: clamp(0.875rem, 0.73rem + 0.72vw, 1.563rem);
+    width: var(--size);
+    height: var(--size);
+    background-color: var(--black-rgba05);
+    border-radius: 50%;
+    color: var(--white-default);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid var(--gray-rgba04);
+    cursor: pointer;
+  }
+
+  &--checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    display: none;
+    color: var(--white-default);
+    cursor: pointer;
+  }
+
+  &--checkbox:checked + .logo--checkmark {
+    box-shadow:
+      0px 0px 0px #0e0e0e,
+      0px 0px 0px rgb(95 94 94 / 25%),
+      inset 1.5px 1.5px 3px #0e0e0e,
+      inset -1.5px -1.5px 3px #5f5e5e;
+    opacity: 1;
+  }
+}

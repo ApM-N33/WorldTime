@@ -1,0 +1,199 @@
+.logo {
+  --flag-logo-width: clamp(0.875rem, 0.784rem + 0.45vw, 1.125rem);
+  --flag-logo-height: clamp(0.563rem, 0.517rem + 0.23vw, 0.688rem);
+  --globus-logo-width: clamp(1.5rem, 1.053rem + 2.24vw, 3.625rem);
+  --trash-logo-width: clamp(1rem, 0.882rem + 0.59vw, 1.563rem);
+  --burger-logo-width: clamp(1.875rem, 1.429rem + 2.23vw, 2.5rem);
+  --checked-logo-width: clamp(0.875rem, 0.796rem + 0.39vw, 1.25rem);
+  --clock-logo-width: clamp(0.938rem, 0.872rem + 0.33vw, 1.25rem);
+  --clock-logo-bottom-and-right: -3px;
+  --clock-logo-radius: 50%;
+
+  --digital-clock-width: clamp(1.375rem, 1.046rem + 1.64vw, 2.938rem);
+
+  --search-logo-width: clamp(1rem, 0.914rem + 0.43vw, 1.406rem);
+  --plus-logo-width: clamp(1.25rem, 1.092rem + 0.79vw, 2rem);
+  --plus-logo-fz: clamp(1.375rem, 1.164rem + 1.05vw, 2.375rem);
+  --plus-logo-radius: 50%;
+  --plus-logo-padding: clamp(0.219rem, 0.199rem + 0.1vw, 0.313rem);
+
+  &--header-globus {
+    width: var(--globus-logo-width);
+    aspect-ratio: 1;
+    path {
+      stroke: var(--white-default);
+    }
+  }
+
+  &--header-clock {
+    width: var(--clock-logo-width);
+    aspect-ratio: 1;
+    position: absolute;
+    border: 1px solid var(--black-default);
+    bottom: var(--clock-logo-bottom-and-right);
+    right: var(--clock-logo-bottom-and-right);
+    background-color: var(--white-default);
+    border-radius: var(--clock-logo-radius);
+
+    path {
+      fill: var(--black-default);
+    }
+  }
+
+  &--burger {
+    width: var(--burger-logo-width);
+    aspect-ratio: 1;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &__line {
+      fill: none;
+      stroke: var(--white-default);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+      transition:
+        stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &__line--top-bottom {
+      stroke-dasharray: 12 63;
+    }
+  }
+
+  &--trash {
+    width: var(--trash-logo-width);
+    aspect-ratio: 1;
+    fill: var(--gray-text);
+    transition: fill 0.1s ease;
+  }
+
+  &--checked {
+    width: var(--checked-logo-width);
+    aspect-ratio: 1;
+    fill: var(--white-default);
+    border-radius: 50%;
+    transition: fill 0.1s ease;
+    overflow: hidden;
+    path {
+      scale: 1.035;
+    }
+  }
+
+  &--clear-all {
+    width: var(--trash-logo-width);
+    aspect-ratio: 1;
+    fill: var(--white-default);
+    transition: fill 0.1s ease;
+    path {
+      stroke: var(--black-default);
+    }
+  }
+
+  &--plus {
+    width: var(--plus-logo-width);
+    aspect-ratio: 1;
+    border-radius: var(--plus-logo-radius);
+    background-color: var(--black-rgba05);
+    overflow-y: hidden;
+
+    span {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--plus-logo-fz);
+      padding-bottom: var(--plus-logo-padding);
+    }
+  }
+
+  &--loader-map {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    transform: scale(1.14);
+  }
+
+  &--search {
+    width: var(--search-logo-width);
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-default);
+
+    path {
+      fill: var(--white-default);
+    }
+  }
+
+  &--digital-clock {
+    width: var(--digital-clock-width);
+    height: auto;
+  }
+
+  &--digital-clock-small {
+    --digital-clock-width: clamp(1.125rem, 0.836rem + 1.45vw, 2.5rem);
+  }
+
+  &--flag {
+    display: inline-block;
+    width: var(--flag-logo-width);
+    height: var(--flag-logo-height);
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &--country-map-card-flag {
+    margin-top: 2.5px;
+  }
+
+  &--converter-flag {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    transform: translate(0, -50%);
+    font-size: var(--text-font-size);
+  }
+
+  &--arrow-down {
+    width: clamp(0.438rem, 0.372rem + 0.33vw, 0.75rem);
+  }
+
+  &--swap {
+    width: clamp(1.063rem, 0.957rem + 0.53vw, 1.563rem);
+    aspect-ratio: 1;
+  }
+
+  &--world-map {
+    width: 100%;
+    path[id] {
+      cursor: pointer;
+    }
+  }
+
+  &--checkmark {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow:
+      1.5px 1.5px 3px #0e0e0e,
+      -1.5px -1.5px 3px rgb(95 94 94 / 25%),
+      inset 0px 0px 0px #0e0e0e,
+      inset 0px -0px 0px #5f5e5e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+  }
+}

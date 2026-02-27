@@ -1,0 +1,73 @@
+.country-map-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--black-rgba05);
+  border: 1px solid var(--gray-rgba04);
+  border-radius: 6px;
+  overflow: hidden;
+  padding: clamp(0.313rem, 0.247rem + 0.33vw, 0.625rem);
+  box-shadow: 0px 0px 20px 1px var(--gray-rgba02) inset;
+  transform-origin: center;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    font-size: var(--text-font-size);
+    border: 1px solid var(--gray-rgba04);
+    border-radius: 6px;
+
+    @media (max-width: 640px) {
+      --text-font-size: 15px;
+    }
+
+    @media (max-width: 450px) {
+      --text-font-size: 12px;
+    }
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  @media (max-width: 640px) {
+    &__country-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+
+  &__body {
+    border: 1px solid var(--gray-rgba04);
+    border-radius: 6px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
+    font-size: var(--text-font-size);
+    border: 1px solid var(--gray-rgba04);
+    border-radius: 6px;
+
+    @media (max-width: 450px) {
+      --text-font-size: 15px;
+    }
+
+    @media (max-width: 450px) {
+      --text-font-size: 12px;
+    }
+  }
+}

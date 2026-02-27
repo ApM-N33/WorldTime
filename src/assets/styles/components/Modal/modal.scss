@@ -1,0 +1,139 @@
+.modal {
+  --modal-padding: 40px clamp(0.938rem, 0.609rem + 1.64vw, 2.5rem);
+  --modal-transform: 0, -300%;
+  --modal-flex: 0 1 500px;
+
+  --modal-notification-padding: clamp(0.75rem, 0.645rem + 0.53vw, 1.25rem);
+  --modal-notification-radius: clamp(0.625rem, 0.362rem + 1.32vw, 1.875rem);
+  --modal-notification-border: 1px solid var(--gray-rgba03);
+
+  --modal-form-max-height: 85vh;
+  --modal-form-gap: 10px;
+  --modal-form-border: 1px solid var(--gray-rgba04);
+  --modal-form-radius: 6px;
+  --modal-form-padding: 10px;
+
+  --modal-form-wrap-border: 1px solid var(--gray-rgba04);
+  --modal-form-wrap-radius: var(--modal-form-radius);
+
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: var(--modal-padding);
+  top: 0;
+  left: 0;
+  background-color: var(--black-rgba08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(var(--modal-transform));
+  transition: transform 0.4s ease;
+
+  &--timezones {
+    background-color: transparent;
+    z-index: 900;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__content {
+    flex: var(--modal-flex);
+  }
+
+  &__form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--modal-form-gap);
+    border: var(--modal-form-border);
+    border-radius: var(--modal-form-radius);
+    padding: var(--modal-form-padding);
+    background-color: var(--black-default);
+    box-shadow: 1px 0px 6px 3px var(--gray-rgba02) inset;
+  }
+
+  &__form-wrap {
+    display: flex;
+    align-items: center;
+    border: var(--modal-form-wrap-border);
+    border-radius: var(--modal-form-wrap-radius);
+    background-color: var(--black-rgba05);
+    gap: 5px;
+    box-shadow: 1px 0px 6px 3px var(--gray-rgba02) inset;
+    padding: 7px;
+  }
+
+  &--notification {
+    max-height: fit-content;
+    background-color: transparent;
+    padding: var(--modal-notification-padding);
+    z-index: 1000;
+  }
+
+  &__notification-wrap {
+    width: 100%;
+    background-color: var(--gray-rgba03);
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border: var(--modal-notification-border);
+    padding: var(--modal-notification-padding);
+    border-radius: var(--modal-notification-radius);
+  }
+
+  &__notification-text {
+    font-size: var(--text-font-size);
+    font-weight: 700;
+    color: var(--black-default);
+    text-align: center;
+  }
+
+  &--preloader {
+    z-index: 950;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    place-items: center;
+    inset: 0;
+    transition: transform ease-in-out 0.5s;
+  }
+
+  &--tooltip {
+    --modal-transform: 0 0;
+    --modal-padding: 8px 8px;
+    border-radius: 6px;
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--black-rgba08);
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    display: none;
+    text-wrap: balance;
+    transition: unset;
+    will-change: transform;
+  }
+
+  &--backdrop-timezones {
+    height: 100dvh;
+    background-color: var(--black-rgba08);
+    z-index: 800;
+    inset: 0 !important;
+  }
+
+  &--backdrop-mobile-menu {
+    --modal-transform: -100%, 0;
+    height: 100dvh;
+    background-color: rgba($color: #0d0d0d, $alpha: 0.8);
+    border-radius: 0 100% 100% 0;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    transition:
+      transform 0.5s ease,
+      border-radius 0.5s ease;
+  }
+}

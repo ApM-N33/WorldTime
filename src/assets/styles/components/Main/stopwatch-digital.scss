@@ -1,0 +1,12 @@
+.stopwatch-digital {
+  --stopwatch-digital-min-height: clamp(12.5rem, 8.654rem + 19.23vw, 31.25rem);
+  --stopwatch-digital-border-top-bottom: 1px solid var(--stopwatch-lap-border-gray);
+
+  width: 100%;
+  height: var(--stopwatch-digital-min-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: var(--stopwatch-digital-border-top-bottom);
+  border-bottom: var(--stopwatch-digital-border-top-bottom);
+}

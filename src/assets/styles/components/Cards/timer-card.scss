@@ -1,0 +1,102 @@
+.timer-card {
+  --timer-card-gap: clamp(0.625rem, 0.493rem + 0.66vw, 1.25rem);
+  --timer-card-padding: clamp(0.625rem, 0.493rem + 0.66vw, 1.25rem);
+  --timer-card-time-text-fz: clamp(3.125rem, -0.164rem + 16.45vw, 18.75rem);
+  --timer-card-date-text-fz: clamp(0.813rem, 0.194rem + 3.09vw, 3.75rem);
+  --timer-card-radius: 10px;
+  --timer-card-border: 1px solid var(--gray-rgba04);
+
+  background-color: var(--black-rgba05);
+  box-shadow: 1px 0px 40px 3px var(--gray-rgba02) inset;
+  border: var(--timer-card-border);
+  border-radius: var(--timer-card-radius);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--timer-card-padding);
+  gap: var(--timer-card-gap);
+
+  &__header {
+    --timer-card-padding: 8px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-font-size);
+    padding: var(--timer-card-padding);
+    border-top: var(--timer-card-border);
+    border-bottom: var(--timer-card-border);
+  }
+
+  &__body {
+    width: 100%;
+    border-top: var(--timer-card-border);
+    border-bottom: var(--timer-card-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--timer-card-gap);
+  }
+
+  &__footer {
+    --timer-card-padding: 8px 0;
+    width: 100%;
+    border-top: var(--timer-card-border);
+    border-bottom: var(--timer-card-border);
+    font-size: var(--text-font-size);
+    padding: var(--timer-card-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__time-text {
+    font-family: var(--main-font);
+    color: var(--white-default);
+    text-align: center;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &--big {
+    .timer-card__body {
+      --timer-card-padding: clamp(2.5rem, 1.763rem + 3.68vw, 6rem) 0;
+      padding: var(--timer-card-padding);
+    }
+
+    .timer-card__time-text {
+      font-size: var(--timer-card-time-text-fz);
+    }
+
+    .timer-card__date-text {
+      font-size: var(--timer-card-date-text-fz);
+    }
+  }
+
+  &--small {
+    --timer-card-time-text-fz: clamp(2.5rem, 1.447rem + 5.26vw, 7.5rem);
+    --timer-card-date-text-fz: clamp(0.813rem, 0.589rem + 1.12vw, 1.875rem);
+
+    .timer-card__body {
+      padding: var(--timer-card-padding);
+    }
+
+    .timer-card__time-text {
+      font-size: var(--timer-card-time-text-fz);
+    }
+
+    .timer-card__date-text {
+      font-size: var(--timer-card-date-text-fz);
+    }
+
+    @media (max-width: 1024px) {
+      --timer-card-time-text-fz: clamp(2.813rem, -0.17rem + 14.91vw, 9.375rem);
+      --timer-card-date-text-fz: clamp(0.75rem, 0.239rem + 2.56vw, 1.875rem);
+    }
+  }
+}

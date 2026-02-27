@@ -1,0 +1,66 @@
+.loader-wrap {
+  --loader-border: clamp(0.188rem, 0.095rem + 0.46vw, 0.625rem);
+  --loader-radius: 50%;
+  --loader-wrap-width: min(60vw, 60vh);
+
+  width: var(--loader-wrap-width);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+
+  &--small {
+    --loader-wrap-width: min(16vw, 16vh);
+  }
+
+  &--small-tl {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &--small-bl {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  &--big-mid {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  &--small-tr {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  &--small-br {
+    grid-column: 3;
+    grid-row: 3;
+  }
+
+  &__loader {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: var(--white-default);
+    border: var(--loader-border) solid;
+    border-radius: var(--loader-radius);
+    background:
+      radial-gradient(circle var(--loader-border), currentColor 95%, transparent),
+      linear-gradient(currentColor 50%, transparent 0) 50% / var(--loader-border) 60% no-repeat;
+    animation: l1 2s infinite linear;
+    animation-play-state: paused;
+  }
+
+  &__loader:before {
+    content: "";
+    flex: 1;
+    background: linear-gradient(currentColor 50%, transparent 0) 50% / var(--loader-border) 80% no-repeat;
+    animation: inherit;
+    animation-play-state: inherit;
+  }
+
+  &__loader--small {
+    --loader-border: clamp(0.125rem, 0.086rem + 0.2vw, 0.313rem);
+  }
+}

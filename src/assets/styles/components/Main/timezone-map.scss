@@ -1,0 +1,27 @@
+.timezone-map {
+  &__wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__wrapper-for-scale {
+    width: 100%;
+    display: flex;
+    touch-action: none;
+    will-change: transform; 
+  }
+
+  &__scale-buttons-wrapper {
+    position: absolute;
+    right: clamp(0.188rem, 0.095rem + 0.46vw, 0.625rem);
+    top: clamp(0.188rem, 0.095rem + 0.46vw, 0.625rem);
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.188rem, 0.095rem + 0.46vw, 0.625rem);
+  }
+}
+
+

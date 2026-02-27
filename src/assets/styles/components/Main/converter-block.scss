@@ -1,0 +1,31 @@
+.converter-block {
+  --converter-block-gap: 30px;
+  --converter-block-col-gap: 10px;
+  --converter-block-col-flex: 0 0 calc(50% - 15px);
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: var(--converter-block-gap);
+
+  &__col {
+    flex: var(--converter-block-col-flex);
+    display: flex;
+    flex-direction: column;
+    gap: var(--converter-block-col-gap);
+  }
+
+  &__time-input-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+  }
+
+  @media (max-width: 640px) {
+    --text-font-size: 12px;
+    --converter-block-gap: 20px;
+    --converter-block-col-flex: 0 0 calc(50% - 10px);
+  }
+}

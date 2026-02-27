@@ -1,0 +1,66 @@
+.stopwatch-block {
+  --stopwatch-block-gap: 0;
+  --stopwatch-left-block-flex: 0 0 100%;
+  --stopwatch-right-block-flex: 0 0 0;
+  --stopwatch-right-block-max-height: clamp(18.75rem, 9.776rem + 44.87vw, 62.5rem);
+  --stopwatch-buttons-wrap-max-width: clamp(13.75rem, 6.25rem + 37.5vw, 50.313rem);
+  --scrollbar-width: 4px;
+  --scrollbar-thumb-radius: 6px;
+
+  width: 100%;
+  display: flex;
+  gap: var(--stopwatch-block-gap);
+  transition: gap 0.3s ease-in-out;
+  overflow-x: hidden;
+
+  &__left {
+    flex: var(--stopwatch-left-block-flex);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: flex 0.3s ease-in-out;
+  }
+
+  &__right {
+    flex: var(--stopwatch-right-block-flex);
+    min-width: 0;
+    max-height: var(--stopwatch-right-block-max-height);
+    height: 100%;
+    padding-right: 2.5px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: translate(var(--right-block-translate));
+    transition:
+      flex 0.3s ease-in-out 0.1s,
+      transform 0.3s ease-in-out;
+
+    &::-webkit-scrollbar {
+      width: var(--scrollbar-width);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--white-default);
+      border-radius: var(--scrollbar-thumb-radius);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--scrollbar-track-bg);
+    }
+  }
+
+  &__buttons-wrap {
+    width: 100%;
+    max-width: var(--stopwatch-buttons-wrap-max-width);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (max-width:768px) {
+    flex-direction: column;
+    --stopwatch-right-block-max-height: clamp(18.75rem, 14.286rem + 22.32vw, 25rem);
+  }
+}

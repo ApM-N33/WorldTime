@@ -1,0 +1,25 @@
+.converter-dropdown {
+  --converter-dropdown-list-max-height: 0px;
+  --converter-dropdown-list-top: 100%;
+  --converter-dropdown-list-left: 0;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black-rgba05);
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    max-height: var(--converter-dropdown-list-max-height);
+    top: var(--converter-dropdown-list-top);
+    left: var(--converter-dropdown-list-left);
+    z-index: 10;
+    overflow-y: hidden;
+    transition:
+      max-height 0.3s ease,
+      top 0.3s ease;
+  }
+}

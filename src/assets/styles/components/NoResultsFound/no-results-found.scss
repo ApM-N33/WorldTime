@@ -1,0 +1,11 @@
+.no-results-found {
+  width: 100%;
+  background-color: var(--black-rgba05);
+  border: 1px solid var(--gray-rgba04);
+  border-radius: 6px;
+  box-shadow: 1px 0px 6px 3px var(--gray-rgba02) inset;
+  padding: 4px 7px;
+  color: var(--white-default);
+  font-size: var(--text-font-size);
+  display: none;
+}

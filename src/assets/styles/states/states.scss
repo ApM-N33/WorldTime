@@ -1,0 +1,228 @@
+// ============= Html and Body ================= //
+html.is-overflowed {
+  overflow: hidden !important;
+  body {
+    position: fixed !important;
+    inset: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+// ========= Timer Block ============== //
+.timer-block.short {
+  --timer-block-gap: 30px;
+  --timer-block-left-flex: 0 0 calc(50% - 15px);
+  --timer-block-right-flex: 0 0 calc(50% - 15px);
+  --right-block-translate: 0, 0;
+
+  .timer-card--big {
+    --timer-card-time-text-fz: clamp(3.125rem, 2.138rem + 4.93vw, 7.813rem);
+    --timer-card-date-text-fz: clamp(0.813rem, 0.523rem + 1.45vw, 2.188rem);
+
+    @media (max-width: 1024px) {
+      --timer-card-time-text-fz: clamp(3.125rem, -0.142rem + 16.34vw, 10.313rem);
+      --timer-card-date-text-fz: clamp(0.813rem, 0.188rem + 3.13vw, 2.188rem);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+// ============== Modals ============== //
+.modal.is-active {
+  --modal-transform: 0, 0;
+}
+
+.modal--timezones.is-active {
+  ~ .modal--backdrop-timezones {
+    --modal-transform: 0, 0;
+  }
+}
+
+.modal--backdrop-mobile-menu.is-active {
+  --modal-transform: 0, 0;
+  border-radius: 0;
+}
+
+.loader-wrap__loader.is-running {
+  animation-play-state: running;
+}
+
+//=========== List items ===============//
+.countries-list__country-item {
+  &--modal.is-active,
+  &--dropdown-converter.is-active {
+    color: var(--white-default);
+    background-color: var(--black-rgba08);
+    text-shadow:
+      0 0 10px var(--black-default),
+      0 0 20px var(--black-default),
+      0 0 25px var(--black-default),
+      0 0 40px var(--black-default);
+    -moz-backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    backdrop-filter: blur(10px) saturate(180%);
+    box-shadow: 0px 0px 17px 8px var(--white-rgba085) inset;
+  }
+}
+
+.countries-list.is-active {
+  border: var(--countries-list-border);
+  --countries-list-converter-max-height: 250px;
+  --countries-list-converter-height: 100%;
+  --countries-list-converter-margin: 5px 0 0 0;
+}
+
+//=============== Stopwatch =====================//
+.stopwatch-block.is-active {
+  --stopwatch-block-gap: 30px;
+  --stopwatch-left-block-flex: 0 0 calc(50% - 15px);
+  --stopwatch-right-block-flex: 0 0 calc(50% - 15px);
+  --right-block-translate: 0, 0;
+
+  .time-text {
+    --stopwatch-digital-time-text-fz: clamp(2.5rem, 1.41rem + 5.45vw, 7.813rem);
+  }
+  .lap {
+    --lap-running-opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    --stopwatch-block-gap: 15px;
+  }
+}
+
+.stopwatch-analog--miliseconds-arrow-lap.is-active {
+  display: flex;
+}
+
+.stopwatch-analog--miliseconds-arrow.is-smooth,
+.stopwatch-analog--miliseconds-arrow-lap.is-smooth {
+  transition: transform 0.2s linear;
+}
+
+.btn--stopwatch-start.is-stoped {
+  color: var(--stopwatch-stop-btn-text-red);
+  background-color: var(--stopwatch-stop-btn-red);
+}
+
+.btn--stopwatch-lap.is-active {
+  color: var(--stopwatch-lap-btn-text-active-gray);
+  background-color: var(--stopwatch-lap-btn-active-gray);
+}
+
+//========== frozen laps red or green colors =============//
+.lap--frozen.is-red p {
+  color: var(--stopwatch-frozen-lap-max-ms-red);
+}
+
+.lap--frozen.is-green p {
+  color: var(--stopwatch-frozen-lap-min-ms-green);
+}
+
+//============= Converter-dropdown =================//
+.converter-dropdown.is-active {
+  .converter-dropdown__list {
+    --converter-dropdown-list-max-height: 250px;
+    --converter-dropdown-list-top: calc(100% + 7px);
+    overflow-y: visible;
+  }
+}
+
+//=========== Converter blocks reversed or initial positions animation ==============//
+.converter-block.is-reversed {
+  .converter-block__col:nth-child(2) {
+    animation: reverseLeft 1s linear forwards;
+  }
+  .converter-block__col:nth-child(3) {
+    animation: reverseRight 1s linear forwards;
+  }
+  .btn--swap {
+    transform: translate(-50%, -50%) rotate(0.5turn);
+  }
+}
+
+.converter-block.is-initial {
+  .converter-block__col:nth-child(2) {
+    animation: initialLeft 1s linear forwards;
+  }
+  .converter-block__col:nth-child(3) {
+    animation: initialRight 1s linear forwards;
+  }
+  .btn--swap {
+    transform: translate(-50%, -50%) rotate(0turn);
+  }
+}
+
+//================= No Results Found ========================//
+.no-results-found.is-active {
+  display: block;
+}
+
+.no-results-found.is-active.no-results-found--converter {
+  margin-top: 6px;
+}
+
+//=============== World map Path ID ======================//
+.logo--world-map {
+  path[id].is-active {
+    fill: #2979ff;
+    stroke: var(--white-default);
+    stroke-width: 0.6;
+  }
+
+  path[id].is-active.is-grabbing {
+    cursor: grabbing;
+  }
+}
+
+.modal--tooltip.is-active {
+  display: flex;
+}
+
+.timezone-map__wrapper-for-scale.is-grabbing {
+  cursor: grabbing;
+}
+
+//============================ List-actions ================================ //
+.list-actions--countries.is-active {
+  display: flex;
+  margin: 17px 0;
+}
+
+.list-actions--cities.is-active {
+  display: flex;
+}
+
+//========================== Burger btn ====================================//
+.btn--burger.is-active {
+  .logo--burger {
+    transform: rotate(-45deg);
+    &__line--top-bottom {
+      stroke-dasharray: 20 300;
+      stroke-dashoffset: -32.42;
+    }
+  }
+}
+
+// ========================= Mobile menu ======================================//
+.mobile-menu.is-active {
+  transform: translate(0, 0);
+  border-radius: 0 5px 5px 0;
+}
+
+//========================= Nav buttons =======================================//
+.btn--nav-item.is-active {
+  color: var(--black-default) !important;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+  text-shadow:
+    0 0 5px var(--gray-text),
+    0 0 5px var(--gray-text),
+    0 0 10px var(--gray-text),
+    0 0 10px var(--gray-text);
+}

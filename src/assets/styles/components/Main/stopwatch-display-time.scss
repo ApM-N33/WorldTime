@@ -1,0 +1,31 @@
+.time-text {
+  --stopwatch-analog-time-text-fz: clamp(0.813rem, 0.441rem + 1.86vw, 2.625rem);
+  --stopwatch-digital-time-text-fz: clamp(2.5rem, 0.449rem + 10.26vw, 12.5rem);
+  --lap-time-fz: clamp(0.813rem, 0.479rem + 1.67vw, 2.438rem);
+
+  display: inline-block;
+  text-align: center;
+  color: var(--white-default);
+  line-height: 1;
+  font-family: var(--system-font);
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "zero" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translateZ(0);
+  will-change: transform;
+  white-space: nowrap;
+
+  &--stopwatch-analog {
+    font-size: var(--stopwatch-analog-time-text-fz);
+  }
+
+  &--stopwatch-digital {
+    font-size: var(--stopwatch-digital-time-text-fz);
+  }
+
+  &--lap {
+    font-size: var(--lap-time-fz);
+  }
+}

@@ -1,0 +1,50 @@
+:root {
+  // Sizes
+  --body-min-height: 100dvh;
+  --container-max-width: 1870px;
+  --container-padding: 0 15px;
+  --right-block-translate: -100%, 0;
+  --text-font-size: clamp(1rem, 0.921rem + 0.39vw, 1.375rem);
+  --text-line-height: clamp(1.5rem, 1.289rem + 1.05vw, 2.5rem);
+  --text-margin: clamp(0.75rem, 0.671rem + 0.39vw, 1.125rem) 0 clamp(1.25rem, 0.855rem + 1.97vw, 3.125rem) 0;
+  --title-font-size: clamp(1.875rem, 1.743rem + 0.66vw, 2.5rem);
+  --title-font-weight: 700;
+  --title-letter-spacing: clamp(0.063rem, 0.049rem + 0.07vw, 0.125rem);
+  --title-underline-offset: clamp(0.438rem, 0.411rem + 0.13vw, 0.563rem);
+  --title-underline-thickness: clamp(0.094rem, 0.087rem + 0.03vw, 0.125rem);
+  --main-font: "Orbitron", sans-serif;
+  --system-font:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  // Colors
+  --white-default: #fff;
+  --white-rgba085: rgba(255, 255, 255, 0.85);
+  --black-default: #000000;
+  --black-rgba08: rgba(0, 0, 0, 0.8);
+  --black-rgba04: rgba(0, 0, 0, 0.4);
+  --black-rgba05: rgba(28, 28, 28, 0.5);
+  --black-body-bg: #0d0d0d;
+  --gray-text: #c0c0c0;
+  --gray-rgba02: rgba(255, 255, 255, 0.2);
+  --gray-rgba03: rgba(255, 255, 255, 0.3);
+  --gray-rgba04: rgba(255, 255, 255, 0.4);
+  --stopwatch-yellow: #efb654;
+  --stopwatch-start-btn-green: #0b2b15;
+  --stopwatch-start-btn-text-green: #47cf64;
+  --stopwatch-stop-btn-red: #350d0e;
+  --stopwatch-stop-btn-text-red: #e54a48;
+  --stopwatch-lap-btn-disabled-gray: #201c21;
+  --stopwatch-lap-btn-text-disabled-gray: #9b999e;
+  --stopwatch-lap-btn-active-gray: #373336;
+  --stopwatch-lap-btn-text-active-gray: #fcfbfd;
+  --stopwatch-reset-btn-gray: #373336;
+  --stopwatch-reset-btn-text-gray: #fcfbfd;
+  --stopwatch-lap-border-gray: #373336;
+  --stopwatch-ms-arrow-lap-blue: #0b82fd;
+  --stopwatch-frozen-lap-max-ms-red: #e54a48;
+  --stopwatch-frozen-lap-min-ms-green: #47cf64;
+  --scrollbar-track-bg: #1c1c1c;
+  @media (max-width: 640px) {
+    --text-font-size: 14px;
+  }
+}

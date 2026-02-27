@@ -1,0 +1,31 @@
+.lap {
+  --lap-padding: clamp(0.5rem, 0.41rem + 0.45vw, 0.938rem) 0;
+  --lap-label-fz: clamp(0.813rem, 0.479rem + 1.67vw, 2.438rem);
+  --lap-running-opacity: 0;
+  --lap-running-border-top: 1px;
+  --lap-running-border-bottom: 1px;
+  --lap-frozen-border-top: unset;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: var(--lap-running-border-bottom) solid var(--stopwatch-lap-border-gray);
+  border-top: var(--lap-running-border-top) solid var(--stopwatch-lap-border-gray);
+  padding: var(--lap-padding);
+
+  &--running {
+    opacity: var(--lap-running-opacity);
+    transition: opacity 0.3s ease 0.1s;
+  }
+
+  &--frozen {
+    border-top: var(--lap-frozen-border-top);
+  }
+
+  &__label {
+    font-family: var(--system-font);
+    font-size: var(--lap-label-fz);
+    font-weight: 400;
+    color: var(--white-default);
+  }
+}

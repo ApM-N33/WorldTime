@@ -1,0 +1,155 @@
+.stopwatch-analog {
+  --stopwatch-radius: 50%;
+  --overlay-padding: clamp(1.875rem, 0.337rem + 7.69vw, 9.375rem) 0 clamp(2.5rem, 0.449rem + 10.26vw, 12.5rem);
+
+  --ms-img-wrap-width: clamp(13.75rem, 6.25rem + 37.5vw, 50.313rem);
+  --ms-img-transfrom: translate(0, calc(-1 * clamp(0.104rem, 0.018rem + 0.43vw, 0.523rem))) scale(1.01);
+  --ms-center-dot-border: clamp(0.06rem, 0.01rem + 0.25vw, 0.301rem) solid var(--stopwatch-yellow);
+  --ms-center-dot-width: clamp(0.24rem, 0.042rem + 0.99vw, 1.206rem);
+  --ms-arrow-width: clamp(0.06rem, 0.01rem + 0.25vw, 0.301rem);
+  --ms-arrow-height: calc(var(--ms-img-wrap-width) / 1.8);
+  --ms-arrow-transform: translate(0, calc(var(--ms-arrow-height) / 11));
+
+  --min-img-wrap-width: clamp(2.563rem, 0.396rem + 10.83vw, 13.125rem);
+  --min-img-transform: translate(0, calc(-1 * clamp(0.054rem, 0.009rem + 0.22vw, 0.271rem))) scale(1.01);
+  --min-center-dot-width: clamp(0.16rem, 0.028rem + 0.66vw, 0.804rem);
+  --min-arrow-width: clamp(0.054rem, 0.009rem + 0.22vw, 0.271rem);
+  --min-arrow-height: calc(var(--min-img-wrap-width) / 1.7);
+  --min-arrow-transform: translate(0, calc(var(--min-arrow-height) / 9.5));
+
+  --img-top: clamp(0.063rem, 0.011rem + 0.26vw, 0.313rem);
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--overlay-padding);
+  }
+
+  &__img-wrap {
+    aspect-ratio: 1;
+    border-radius: var(--stopwatch-radius);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--miliseconds-img-wrap {
+    width: var(--ms-img-wrap-width);
+  }
+
+  &--minutes-img-wrap {
+    width: var(--min-img-wrap-width);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    top: var(--img-top);
+    left: 0;
+  }
+
+  &--miliseconds-img {
+    transform: var(--ms-img-transfrom);
+  }
+
+  &--minutes-img {
+    transform: var(--min-img-transform);
+  }
+
+  &__center-dot {
+    border-radius: var(--stopwatch-radius);
+    position: relative;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &--miliseconds-center-dot {
+    border: var(--ms-center-dot-border);
+    width: var(--ms-center-dot-width);
+    height: var(--ms-center-dot-width);
+    background-color: var(--black-default);
+    position: relative;
+  }
+
+  &--miliseconds-center-dot::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--stopwatch-radius);
+    background-color: var(--black-default);
+    z-index: 20;
+  }
+
+  &--minutes-center-dot {
+    width: var(--min-center-dot-width);
+    aspect-ratio: 1;
+    background-color: var(--stopwatch-yellow);
+  }
+
+  &__arrow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    border-radius: var(--stopwatch-radius);
+    position: relative;
+  }
+
+  &__arrow::before {
+    content: "";
+    background-color: var(--stopwatch-yellow);
+  }
+
+  &--miliseconds-arrow,
+  &--miliseconds-arrow-lap {
+    transition: unset;
+  }
+
+  &--miliseconds-arrow::before {
+    width: var(--ms-arrow-width);
+    height: var(--ms-arrow-height);
+    transform: var(--ms-arrow-transform);
+  }
+
+  &--miliseconds-arrow-lap {
+    position: absolute;
+    z-index: -1;
+    display: none;
+  }
+
+  &--miliseconds-arrow-lap::before {
+    background-color: var(--stopwatch-ms-arrow-lap-blue);
+  }
+
+  &--minutes-arrow::before {
+    width: var(--min-arrow-width);
+    height: var(--min-arrow-height);
+    transform: var(--min-arrow-transform);
+  }
+
+  @media (max-width: 640px) {
+    --overlay-padding: clamp(2.5rem, 1.25rem + 6.25vw, 3.75rem) 0 clamp(3.438rem, 2.5rem + 4.69vw, 4.375rem);
+    --min-img-wrap-width: clamp(3.125rem, 1.25rem + 9.38vw, 5rem);
+  }
+}
