@@ -11,6 +11,7 @@ Built with modern web technologies and optimized for smooth UI interactions and 
 ## 🚀 Features
 
 ### 🌎 World Time
+
 - Add cities to track their local time
 - Display date and time for selected cities
 - Manage and remove city cards
@@ -19,6 +20,7 @@ Built with modern web technologies and optimized for smooth UI interactions and 
 ---
 
 ### ⏱ Stopwatch
+
 - Stopwatch functionality similar to iOS
 - Start, stop, and reset timer
 - Lap (circle) tracking
@@ -27,6 +29,7 @@ Built with modern web technologies and optimized for smooth UI interactions and 
 ---
 
 ### 🔄 Time Converter
+
 - Compare time between two cities
 - Convert time values across time zones
 - Synchronize different local times
@@ -34,6 +37,7 @@ Built with modern web technologies and optimized for smooth UI interactions and 
 ---
 
 ### 🗺 Time Zone Map
+
 - Interactive world map
 - Zoom in / zoom out functionality
 - Click on countries to add them
@@ -56,3 +60,4 @@ Built with modern web technologies and optimized for smooth UI interactions and 
 
 ```bash
 npm install
+```
