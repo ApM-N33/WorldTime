@@ -43,16 +43,19 @@ export class NavigationDom implements INavigationDom {
     addClass(section, "is-active")
   }
 
-  public setActiveNavButton(navButton: HTMLButtonElement) {
-    addClass(navButton, "is-active")
-  }
-
   public hideAllSections() {
     for (const section of this.sections) removeClass(section, "is-active")
   }
 
   public resetAllActiveNavButtons() {
     for (const navButton of this.navButtons) removeClass(navButton, "is-active")
+  }
+
+  public setActiveNavButton(activeSection: HTMLElement) {
+    for (const navButton of this.navButtons) {
+      if (navButton.dataset.action !== activeSection.dataset.section) continue
+      addClass(navButton, "is-active")
+    }
   }
 
   public hideMobileMenu() {
@@ -85,13 +88,12 @@ export class NavigationDom implements INavigationDom {
     const actionName = navButton.dataset.action
     if (!actionName) return
     const activeSection = this.sectionsMap.get(actionName)
-    if (activeSection) {
-      this.resetAllActiveNavButtons()
-      this.resetConvertersTransform()
-      this.hideAllSections()
-      this.hideMobileMenu()
-      this.showActiveSection(activeSection)
-      this.setActiveNavButton(navButton)
-    }
+    if (!activeSection) return
+    this.resetAllActiveNavButtons()
+    this.setActiveNavButton(activeSection)
+    this.resetConvertersTransform()
+    this.hideAllSections()
+    this.hideMobileMenu()
+    this.showActiveSection(activeSection)
   }
 }

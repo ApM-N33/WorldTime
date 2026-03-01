@@ -307,9 +307,8 @@ export class TimezoneMap implements ITimezoneMap {
       this.currency = getCurrency(res.data)
 
       this.resetTimezoneDetails()
-
       this.timezoneMapDom.renderCountryCards()
-      const countryMapCard = this.timezoneMapDom.countryMapCards.at(-1)
+      const countryMapCard = this.timezoneMapDom.countryMapCards[0]
       if (countryMapCard) this.animate(countryMapCard, "in")
 
       if (this.timezonesByCountry.size === 1) {

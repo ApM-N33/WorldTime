@@ -14,7 +14,7 @@ interface INavigationDomMethods extends Omit<IControllerMethods, "setDeps"> {
   registerSections(): void
   handleShowActiveSection(e: MouseEvent): void
   showActiveSection(section: HTMLElement): void
-  setActiveNavButton(navButton: HTMLButtonElement): void
+  setActiveNavButton(activeSection: HTMLElement): void
   hideAllSections(): void
   resetAllActiveNavButtons(): void
   hideMobileMenu(): void

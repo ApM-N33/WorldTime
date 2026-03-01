@@ -11,6 +11,7 @@ import type { ITimezoneItem } from "../../types/timezoneItem/TimezoneItem.types"
 import { useKeydown } from "../../utils/domUtils/useKeydown"
 import type { TuseKeydown } from "../../types/useKeydown/useKeydown.types"
 import { TInputEl } from "../../types/common/Base.types"
+import { useCardsAutoHeight } from '../../utils/domUtils/useCardsAutoHeight';
 import {
   useNoResultsFound,
   type TuseNoResultsFound,
@@ -140,6 +141,7 @@ export class WorldTimeDom implements IWorldTimeDom {
     return [...$(".timer-card--small", "all")]
   }
 
+  private cardsAutoHeight = useCardsAutoHeight()
   public renderCities(): void {
     if (!this.citiesList) return
     const { checkedCities } = this.worldTime
@@ -154,6 +156,10 @@ export class WorldTimeDom implements IWorldTimeDom {
       })
       .toReversed()
     this.citiesList.replaceChildren(...cities)
+    this.cardsAutoHeight.setCardsContainerHeight(
+      cities.slice(0, 2),
+      this.citiesList,
+    )
   }
 
   public updateCities(): void {

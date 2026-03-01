@@ -14,6 +14,7 @@ import { TimezoneDetail } from "../../models/TimezoneDetails"
 import type { ITimezoneMapTimers } from "../../types/timezone-map/TimezoneMapTimers.types"
 import { getFlag } from "../../utils/helpers/getFlag"
 import { addClass, removeClass } from "../../utils/domUtils/addRemoveClasses"
+import { useCardsAutoHeight } from '../../utils/domUtils/useCardsAutoHeight';
 
 export class TimezoneMapDom implements ITimezoneMapDom {
   public worldMapParentWrapper: Maybe<HTMLElement>
@@ -129,10 +130,12 @@ export class TimezoneMapDom implements ITimezoneMapDom {
     }
   }
 
+  private cardsAutoHeight = useCardsAutoHeight()
   public renderCountryCards(): void {
     if (!this.countriesMapList) return
     const { timezonesByCountry, currency, checkedCountries } = this.timezoneMap
     const countriesMap = [...timezonesByCountry]
+      .reverse()
       .map(([country, countryTimezones]) => {
         const countryMapCard = this.countryMap.create()
         this.countryMap.countryLabel!.textContent = "Country:"
@@ -150,6 +153,10 @@ export class TimezoneMapDom implements ITimezoneMapDom {
       })
       .filter((c) => c !== undefined)
     this.countriesMapList.replaceChildren(...countriesMap)
+    this.cardsAutoHeight.setCardsContainerHeight(
+      countriesMap.slice(0, 2),
+      this.countriesMapList,
+    )
   }
 
   public renderTimezonesItems(countryTimezones: TCountryTimezone[]): void {
