@@ -163,7 +163,7 @@ export class TimezoneMapDom implements ITimezoneMapDom {
     if (!this.countryMap.timezonesList) return
     const timezones = countryTimezones.map((tz) => {
       const cn =
-        "countries-list__country-item countries-list__country-item--country-map"
+        "timezones-list__timezone-item timezones-list__timezone-item--country-map"
       const timezoneItem = this.timezoneItem.create(tz.name, cn)
       this.renderTimezonesDetails(tz, timezoneItem)
       return timezoneItem

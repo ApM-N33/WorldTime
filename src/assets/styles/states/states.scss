@@ -51,7 +51,7 @@ html.is-overflowed {
 }
 
 //=========== List items ===============//
-.countries-list__country-item {
+.timezones-list__timezone-item {
   &--modal.is-active,
   &--dropdown-converter.is-active {
     color: var(--white-default);
@@ -68,11 +68,11 @@ html.is-overflowed {
   }
 }
 
-.countries-list.is-active {
-  border: var(--countries-list-border);
-  --countries-list-converter-max-height: 250px;
-  --countries-list-converter-height: 100%;
-  --countries-list-converter-margin: 5px 0 0 0;
+.timezones-list.is-active {
+  border: var(--timezones-list-border);
+  --timezones-list-converter-max-height: 250px;
+  --timezones-list-converter-height: 100%;
+  --timezones-list-converter-margin: 5px 0 0 0;
 }
 
 //=============== Stopwatch =====================//

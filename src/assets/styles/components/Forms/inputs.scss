@@ -16,7 +16,7 @@
   }
 
   &--time-converter,
-  &--dropdown-converter {
+  &--timezones-dropdown-converter {
     padding: var(--input-padding);
     background-color: var(--black-rgba05);
     border: var(--input-converter-border);
@@ -26,11 +26,11 @@
   }
 
   &--time-converter:focus,
-  &--dropdown-converter:focus {
+  &--timezones-dropdown-converter:focus {
     border-color: var(--white-default);
   }
 
-  &--dropdown-converter::placeholder {
+  &--timezones-dropdown-converter::placeholder {
     color: var(--gray-text);
     --text-font-size: clamp(0.875rem, 0.809rem + 0.33vw, 1.188rem);
     @media (max-width: 640px) {
@@ -42,7 +42,7 @@
     --input-padding: clamp(0.625rem, 0.586rem + 0.2vw, 0.813rem) clamp(0.313rem, 0.286rem + 0.13vw, 0.438rem);
   }
 
-  &--dropdown-converter {
+  &--timezones-dropdown-converter {
     --input-padding: clamp(0.313rem, 0.286rem + 0.13vw, 0.438rem);
   }
 

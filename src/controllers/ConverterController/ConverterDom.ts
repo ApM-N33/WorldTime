@@ -56,9 +56,9 @@ export class ConverterDom implements IConverterDom {
     this.cityText = $(".btn--dropdown-converter__city-text", "one", root)
     this.flagLogo = $<HTMLImageElement>(".logo--flag__img", "one", root)
     this.offsetText = $(".btn--dropdown-converter__offset-text", "one", root)
-    this.timezonesList = $(".countries-list", "one", root)
+    this.timezonesList = $(".timezones-list", "one", root)
     this.timeDisplayInput = $<TInputEl>(".input--time-converter", "one", root)
-    this.searchInput = $<TInputEl>(".input--dropdown-converter", "one", root)
+    this.searchInput = $<TInputEl>(".input--timezones-dropdown-converter", "one", root)
     this.searchForm = $(".converter-dropdown__form", "one", root)
     this.handleSearchTimezoneDebounce = debounce((e) => {
       this.converter.handleSearchTimezone(e)
@@ -123,7 +123,7 @@ export class ConverterDom implements IConverterDom {
   }
 
   get timezonesItems(): NodeListOf<HTMLElement> {
-    return $(".countries-list__country-item", "all", this.converterBlock)
+    return $(".timezones-list__timezone-item", "all", this.converterBlock)
   }
 
   public renderConverterBlock(): void {
@@ -137,7 +137,7 @@ export class ConverterDom implements IConverterDom {
     this.timezonesList.scrollTop = 0
     const timezones = this.converter.timezones.map((tz) => {
       const cn =
-        "countries-list__country-item countries-list__country-item--dropdown-converter"
+        "timezones-list__timezone-item timezones-list__timezone-item--dropdown-converter"
       return this.timezoneItem.create(tz, cn)
     })
     this.timezonesList.replaceChildren(...timezones)

@@ -66,7 +66,7 @@ export class CountryMap implements ICountryMap {
         </button>
       </div>
       <div class="country-map-card__body">
-        <ul class="countries-list countries-list--country-map"></ul>
+        <ul class="timezones-list timezones-list--country-map"></ul>
       </div>
       <div class="country-map-card__footer">
         <p class="country-map-card__total-timezones"></p>
@@ -98,7 +98,7 @@ export class CountryMap implements ICountryMap {
       "one",
       countryMapCard,
     )
-    this.timezonesList = $(".countries-list", "one", countryMapCard)
+    this.timezonesList = $(".timezones-list", "one", countryMapCard)
     this.deleteCountryBtn = $(".btn--delete-country", "one", countryMapCard)
     this.checkboxInput = $(".input--checkbox", "one", countryMapCard)
 

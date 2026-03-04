@@ -52,9 +52,9 @@ export class WorldTimeDom implements IWorldTimeDom {
     this.flagLogo = $<HTMLImageElement>(".logo--flag__img", "one")
     this.timerBlock = $(".timer-block", "one")
     this.timerRightBlock = $(".timer-block__right", "one")
-    this.timezonesList = $(".countries-list--modal", "one")
+    this.timezonesList = $(".timezones-list--modal", "one")
     this.searchForm = $(".modal__form", "one")
-    this.searchInput = $<TInputEl>(".input--countries", "one")
+    this.searchInput = $<TInputEl>(".input--timezones", "one")
     this.addCityBtn = $(".btn--add-city", "one")
     this.deleteCheckedCitiesBtn = $(".btn--delete-checked-cities", "one")
     this.clearAllCitiesBtn = $(".btn--clear-all-cities", "one")
@@ -127,14 +127,14 @@ export class WorldTimeDom implements IWorldTimeDom {
     this.timezonesList.scrollTop = 0
     const timezones = this.worldTime.timezones.map((tz) => {
       const cn =
-        "countries-list__country-item countries-list__country-item--modal"
+        "timezones-list__timezone-item timezones-list__timezone-item--modal"
       return this.timezoneItem.create(tz, cn)
     })
     this.timezonesList.replaceChildren(...timezones)
   }
 
   get timezonesItems(): NodeListOf<HTMLElement> {
-    return $(".countries-list__country-item--modal", "all")
+    return $(".timezones-list__timezone-item--modal", "all")
   }
 
   get citiesCards(): HTMLElement[] {

@@ -24,24 +24,24 @@ export class TimezoneDetail implements ITimezoneDetail {
 
   public create() {
     const timezoneDetails = document.createElement("ul")
-    addClass(timezoneDetails, "countries-list__country-details")
+    addClass(timezoneDetails, "timezones-list__timezone-details")
     timezoneDetails.innerHTML = /* html */ `
-      <li class="countries-list__country-details-item countries-list__country-details--first-item"></li>
-      <li class="countries-list__country-details-item countries-list__country-details--second-item"></li>
-      <li class="countries-list__country-details-item countries-list__country-details--third-item"></li>`
+      <li class="timezones-list__timezone-details-item timezones-list__timezone-details--first-item"></li>
+      <li class="timezones-list__timezone-details-item timezones-list__timezone-details--second-item"></li>
+      <li class="timezones-list__timezone-details-item timezones-list__timezone-details--third-item"></li>`
 
     this.detailDateItem = $(
-      ".countries-list__country-details--first-item",
+      ".timezones-list__timezone-details--first-item",
       "one",
       timezoneDetails,
     )
     this.detailTimeItem = $(
-      ".countries-list__country-details--second-item",
+      ".timezones-list__timezone-details--second-item",
       "one",
       timezoneDetails,
     )
     this.detailUTCItem = $(
-      ".countries-list__country-details--third-item",
+      ".timezones-list__timezone-details--third-item",
       "one",
       timezoneDetails,
     )

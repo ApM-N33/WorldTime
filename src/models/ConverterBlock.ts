@@ -41,13 +41,13 @@ export class ConverterBlock implements IConverterBlock {
             <form class="converter-dropdown__form">
               <input
                 placeholder="Search zone..."
-                class="input input--dropdown-converter"
+                class="input input--timezones-dropdown-converter"
                 type="search"
               />
             </form>
             <span class="no-results-found no-results-found--converter">No results found</span>
             <ul
-              class="countries-list countries-list--dropdown-converter"
+              class="timezones-list timezones-list--dropdown-converter"
             ></ul>
           </div>
         </div>`
